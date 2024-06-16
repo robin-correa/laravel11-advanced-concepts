@@ -43,6 +43,7 @@ class PostController extends Controller
     public function update(Request $request, string $id)
     {
         $response = Http::withOptions(['verify' => false])->put("https://jsonplaceholder.typicode.com/posts/{$id}", $request->all());
+
         return response()->json($response->json());
     }
 
@@ -52,6 +53,7 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         $response = Http::withOptions(['verify' => false])->delete("https://jsonplaceholder.typicode.com/posts/{$id}");
+
         return response()->json(['message' => 'Post deleted successfully']);
     }
 }

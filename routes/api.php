@@ -21,3 +21,9 @@ Route::get('/user/{id}', function ($id) {
 });
 
 Route::apiResource('/posts', PostController::class);
+
+Route::get('/verified-users', function () {
+    $activeUsers = User::emailVerified()->get();
+
+    return response()->json($activeUsers);
+});
