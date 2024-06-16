@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\RegisterEventController;
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +19,5 @@ Route::get('/user/{id}', function ($id) {
 
     return response()->json($user);
 });
+
+Route::apiResource('/posts', PostController::class);
